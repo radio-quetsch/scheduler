@@ -3,11 +3,11 @@ image: alpine:latest
 pages:
     stage: deploy
     script:
-        - mkdir public
-        - cp -rf index.html public/ 2>/dev/null
-        - cp -rf js public/ 2>/dev/null
-        - cp -rf css public/ 2>/dev/null
-        - cp -rf img public/ 2>/dev/null
+        - mkdir -p public
+        - cp -rf index.html public/index.html
+        - cp -rf js public/js
+        - cp -rf css public/css
+        - cp -rf img public/img
     artifacts:
         paths:
             - public

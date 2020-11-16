@@ -4,7 +4,7 @@ pages:
     stage: deploy
     script:
         - mkdir public
-        - cp -r ./{index.html,img,js,css} public/
+        - cp -rf ./{index.html,img,js,css} public/ 2>/dev/null
     artifacts:
         paths:
             - public

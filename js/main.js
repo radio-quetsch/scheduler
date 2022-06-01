@@ -46,8 +46,8 @@ function createTable(myJson) {
             var weekday = dayDate.toLocaleDateString('fr-FR', { weekday: 'long' });
 
             if (now.getMonth() == dayDate.getMonth() && now.getDate() == dayDate.getDate()) {
-                weeklySchedulerTab += '<li class="nav-item bg-secondary">' + '<a class="nav-link active" id="' + item + '-tab" data-toggle="tab" href="#' + item + ' " role="tab" aria-controls="' + item + '" aria-selected="true">' + weekday + " " + thisDayDate + '</a>' + '</li>';
-                weeklySchedulerTabContent += '<div class="tab-pane fade show active" id="'+ item +'" role="tabpanel" aria-labelledby="' + item + '-tab"><table class="table table-dark table-striped"><thead><th>Horaires</th><th>Programme</th></thead><tbody>';
+                weeklySchedulerTab += '<li class="nav-item bg-secondary table-hover">' + '<a class="nav-link text-white active today" id="' + item + '-tab" data-toggle="tab" href="#' + item + ' " role="tab" aria-controls="' + item + '" aria-selected="true">' +  weekday  + " " + thisDayDate + '</a>' + '</li>';
+                weeklySchedulerTabContent += '<div class="tab-pane fade show active" id="'+ item +'" role="tabpanel" aria-labelledby="' + item + '-tab"><table class="table table-dark table-striped table-hover"><thead><th>Horaires</th><th>Programme</th></thead><tbody>';
                 Object.keys(dayJson).forEach(function(item) {
                 var startDateTime = new Date(dayJson[item]['start_timestamp']),
                     endDateTime = new Date(dayJson[item]['end_timestamp']),
@@ -61,7 +61,7 @@ function createTable(myJson) {
                 })
             } else if (now.getTime() <= dayDate.getTime() && dayDate.getDate() <= now.getDate() + 6 ) {
                 weeklySchedulerTab += '<li class="nav-item bg-secondary"><a class="nav-link text-white" id="' + item + '-tab" data-toggle="tab" href="#' + item + ' " role="tab" aria-controls="' + item + '" aria-selected="true">' + weekday + " " + thisDayDate + '</a></li>'
-                weeklySchedulerTabContent += '<div class="tab-pane fade" id="'+ item +'" role="tabpanel" aria-labelledby="' + item + '-tab"><table class="table table-dark table-striped"><thead><th>Horaires</th><th>Programme</th></thead><tbody>';
+                weeklySchedulerTabContent += '<div class="tab-pane fade" id="'+ item +'" role="tabpanel" aria-labelledby="' + item + '-tab"><table class="table table-dark table-striped table-hover"><thead><th>Horaires</th><th>Programme</th></thead><tbody>';
                 Object.keys(dayJson).forEach(function(item) {
                 var startDateTime = new Date(dayJson[item]['start_timestamp']),
                     endDateTime = new Date(dayJson[item]['end_timestamp']),
